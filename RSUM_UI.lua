@@ -467,11 +467,11 @@ function RSUM_Window_Init()
 		sideframebuttontable["SaveNLoad"] = button;
 		
 		-- status text area
-		local frame = CreateFrame("Frame", "$PARENTstatusframe", windowframe);
+		local frame = CreateFrame("Frame", "$parentstatusframe", windowframe);
 		frame:SetPoint("TOPLEFT", gw_padding, -gw_padding);
 		frame:SetPoint("BOTTOMRIGHT", button, "BOTTOMLEFT", -gw_padding, 0);
-		local fontstring = frame:CreateFontString("$PARENTfontstring");
-		
+		local fontstring = frame:CreateFontString("$parentfontstring");
+
 		if not fontstring:SetFont("Fonts\\FRIZQT__.TTF", floor(frame:GetHeight() / 2) - 1, "") then
 			print("Font not valid");
 		end
@@ -483,13 +483,13 @@ function RSUM_Window_Init()
 		fontstring:SetText("Initialized");
 		windowframe.status = fontstring;
 		
-		-- raid quicksetup line - raid difficulty etc.
-		local frame = CreateFrame("Frame", "$PARENT_quicksetupline", windowframe);
+		---- raid quicksetup line - raid difficulty etc.
+		local frame = CreateFrame("Frame", "$parent_quicksetupline", windowframe);
 		frame:SetPoint("TOPLEFT", gw_padding, -gw_padding*2 - symbolbutton_height);
 		frame:SetPoint("TOPRIGHT", -gw_padding, - gw_padding*2 - symbolbutton_height);
 		frame:SetHeight(button_height);
-
-		local button = CreateFrame("Button", "$PARENT_raidorgroup", frame, "UIGoldBorderButtonTemplate");
+        --
+		local button = CreateFrame("Button", "$parent_raidorgroup", frame, "GameMenuButtonTemplate");
 		button:SetSize(button_height, button_height);
 		button:SetText("S");
 		button:SetPoint("TOPLEFT", gw_padding, 0);
@@ -500,33 +500,33 @@ function RSUM_Window_Init()
 												if s:GetText() == "R" then GameTooltip:AddLine("Currently in a Raid"); end GameTooltip:Show(); end);
 		button:SetScript("OnLeave", function(s) GameTooltip:Hide(); end);
 		ns.qs.raidorgroupbutton = button;
-
-		local button = CreateFrame("Button", "$PARENT_normaldiff", frame, "UIGoldBorderButtonTemplate");
-		button:SetSize(button_height, button_height);
-		button:SetText("N");
-		button:SetPoint("TOPLEFT", ns.qs.raidorgroupbutton, "TOPRIGHT", gw_padding, 0);
-		button:SetScript("OnClick", ns.qs.SetNormalDifficulty);
-		button:SetScript("OnEnter", function(s) GameTooltip:SetOwner(s); GameTooltip:AddLine("Normal Difficulty"); GameTooltip:Show(); end);
-		button:SetScript("OnLeave", function(s) GameTooltip:Hide(); end);
-		ns.qs.normaldiffbutton = button;
-
-		local button = CreateFrame("Button", "$PARENT_heroicdiff", frame, "UIGoldBorderButtonTemplate");
-		button:SetSize(button_height, button_height);
-		button:SetText("H");
-		button:SetPoint("TOPLEFT", ns.qs.normaldiffbutton, "TOPRIGHT", 0, 0);
-		button:SetScript("OnClick", ns.qs.SetHeroicDifficulty);
-		button:SetScript("OnEnter", function(s) GameTooltip:SetOwner(s); GameTooltip:AddLine("Heroic Difficulty"); GameTooltip:Show(); end);
-		button:SetScript("OnLeave", function(s) GameTooltip:Hide(); end);
-		ns.qs.heroicdiffbutton = button;
-
-		local button = CreateFrame("Button", "$PARENT_mythicdiff", frame, "UIGoldBorderButtonTemplate");
-		button:SetSize(button_height, button_height);
-		button:SetText("M");
-		button:SetPoint("TOPLEFT", ns.qs.heroicdiffbutton, "TOPRIGHT", 0, 0);
-		button:SetScript("OnClick", ns.qs.SetMythicDifficulty);
-		button:SetScript("OnEnter", function(s) GameTooltip:SetOwner(s); GameTooltip:AddLine("Mythic Difficulty"); GameTooltip:Show(); end);
-		button:SetScript("OnLeave", function(s) GameTooltip:Hide(); end);
-		ns.qs.mythicdiffbutton = button;
+        --
+		--local button = CreateFrame("Button", "$parent_normaldiff", frame, "UIPanelButtonTemplate");
+		--button:SetSize(button_height, button_height);
+		--button:SetText("N");
+		--button:SetPoint("TOPLEFT", ns.qs.raidorgroupbutton, "TOPRIGHT", gw_padding, 0);
+		--button:SetScript("OnClick", ns.qs.SetNormalDifficulty);
+		--button:SetScript("OnEnter", function(s) GameTooltip:SetOwner(s); GameTooltip:AddLine("Normal Difficulty"); GameTooltip:Show(); end);
+		--button:SetScript("OnLeave", function(s) GameTooltip:Hide(); end);
+		--ns.qs.normaldiffbutton = button;
+        --
+		--local button = CreateFrame("Button", "$parent_heroicdiff", frame, "UIPanelButtonTemplate");
+		--button:SetSize(button_height, button_height);
+		--button:SetText("H");
+		--button:SetPoint("TOPLEFT", ns.qs.normaldiffbutton, "TOPRIGHT", 0, 0);
+		--button:SetScript("OnClick", ns.qs.SetHeroicDifficulty);
+		--button:SetScript("OnEnter", function(s) GameTooltip:SetOwner(s); GameTooltip:AddLine("Heroic Difficulty"); GameTooltip:Show(); end);
+		--button:SetScript("OnLeave", function(s) GameTooltip:Hide(); end);
+		--ns.qs.heroicdiffbutton = button;
+        --
+		--local button = CreateFrame("Button", "$parent_mythicdiff", frame, "UIPanelButtonTemplate");
+		--button:SetSize(button_height, button_height);
+		--button:SetText("M");
+		--button:SetPoint("TOPLEFT", ns.qs.heroicdiffbutton, "TOPRIGHT", 0, 0);
+		--button:SetScript("OnClick", ns.qs.SetMythicDifficulty);
+		--button:SetScript("OnEnter", function(s) GameTooltip:SetOwner(s); GameTooltip:AddLine("Mythic Difficulty"); GameTooltip:Show(); end);
+		--button:SetScript("OnLeave", function(s) GameTooltip:Hide(); end);
+		--ns.qs.mythicdiffbutton = button;
 
 		ns.qs.Initiate(button);
 		ns.qs.CheckButtons();
@@ -881,7 +881,7 @@ function RSUM_SaveNLoadWindowInit()
 			UIDropDownMenu_SetWidth(savenloaddropdownmenu, width);
 			UIDropDownMenu_Initialize(savenloaddropdownmenu, RSUM_SaveNLoadDropDown_Menu);
 			
-			local button = CreateFrame("Button", "rsumsavenloadcreatebutton", savenloadframe, "UIGoldBorderButtonTemplate");
+			local button = CreateFrame("Button", "rsumsavenloadcreatebutton", savenloadframe, "UIPanelButtonTemplate");
 			button:SetSize(button_height, button_height);
 			button:SetText("+");
 			button:SetPoint("CENTER", savenloadframe, "TOPRIGHT", -button_height / 2 -gw_padding - mw_padding * 2 - button_height * 2, -button_height / 2 -gw_padding);
@@ -890,7 +890,7 @@ function RSUM_SaveNLoadWindowInit()
 			button:SetScript("OnLeave", function(s) GameTooltip:Hide(); end);
 			savenloadframe.createbutton = button;
 			
-			local button = CreateFrame("Button", "rsumsavenloaddeletebutton", savenloadframe, "UIGoldBorderButtonTemplate");
+			local button = CreateFrame("Button", "rsumsavenloaddeletebutton", savenloadframe, "UIPanelButtonTemplate");
 			button:SetSize(button_height, button_height);
 			button:SetText("-");
 			button:SetPoint("CENTER", savenloadframe, "TOPRIGHT", -button_height / 2 -gw_padding - mw_padding - button_height, -button_height / 2 -gw_padding);
@@ -900,7 +900,7 @@ function RSUM_SaveNLoadWindowInit()
 			button:Disable();
 			savenloadframe.deletebutton = button;
 			
-			local button = CreateFrame("Button", "rsumsavenloadchangenamebutton", savenloadframe, "UIGoldBorderButtonTemplate");
+			local button = CreateFrame("Button", "rsumsavenloadchangenamebutton", savenloadframe, "UIPanelButtonTemplate");
 			button:SetSize(button_height, button_height);
 			button:SetText("*");
 			button:SetPoint("CENTER", savenloadframe, "TOPRIGHT", -button_height / 2 -gw_padding, -button_height / 2 -gw_padding);

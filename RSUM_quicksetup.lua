@@ -13,20 +13,20 @@ function ns.qs.RaidOrGroupToggle(s)
 	end
 end
 
-function ns.qs.SetNormalDifficulty() 
-	SetRaidDifficultyID(14);
-	ns.qs.CheckButtons();
-end
-
-function ns.qs.SetHeroicDifficulty() 
-	SetRaidDifficultyID(15);
-	ns.qs.CheckButtons();
-end
-
-function ns.qs.SetMythicDifficulty() 
-	SetRaidDifficultyID(16);
-	ns.qs.CheckButtons();
-end
+--function ns.qs.SetNormalDifficulty()
+--	SetRaidDifficultyID(14);
+--	ns.qs.CheckButtons();
+--end
+--
+--function ns.qs.SetHeroicDifficulty()
+--	SetRaidDifficultyID(15);
+--	ns.qs.CheckButtons();
+--end
+--
+--function ns.qs.SetMythicDifficulty()
+--	SetRaidDifficultyID(16);
+--	ns.qs.CheckButtons();
+--end
 
 function ns.qs.Initiate(button)
 	selectedfont = button:GetNormalFontObject();
@@ -45,26 +45,26 @@ function ns.qs.CheckButtons()
 			ns.qs.raidorgroupbutton:SetText("S");
 		end
 	end
-	if ns.qs.normaldiffbutton then
-		if GetRaidDifficultyID() == 14 then
-			ns.qs.normaldiffbutton:SetNormalFontObject(selectedfont);
-		else
-			ns.qs.normaldiffbutton:SetNormalFontObject(deselectedfont);
-		end
-	end
-	if ns.qs.heroicdiffbutton then
-		if GetRaidDifficultyID() == 15 then
-			ns.qs.heroicdiffbutton:SetNormalFontObject(selectedfont);
-		else
-			ns.qs.heroicdiffbutton:SetNormalFontObject(deselectedfont);
-		end
-	end
-	if ns.qs.mythicdiffbutton then
-		if GetRaidDifficultyID() == 16 then
-			ns.qs.mythicdiffbutton:SetNormalFontObject(selectedfont);
-		else
-			ns.qs.mythicdiffbutton:SetNormalFontObject(deselectedfont);
-		end
-
-	end
+	--if ns.qs.normaldiffbutton then
+	--	if GetRaidDifficultyID() == 14 then
+	--		ns.qs.normaldiffbutton:SetNormalFontObject(selectedfont);
+	--	else
+	--		ns.qs.normaldiffbutton:SetNormalFontObject(deselectedfont);
+	--	end
+	--end
+	--if ns.qs.heroicdiffbutton then
+	--	if GetRaidDifficultyID() == 15 then
+	--		ns.qs.heroicdiffbutton:SetNormalFontObject(selectedfont);
+	--	else
+	--		ns.qs.heroicdiffbutton:SetNormalFontObject(deselectedfont);
+	--	end
+	--end
+	--if ns.qs.mythicdiffbutton then
+	--	if GetRaidDifficultyID() == 16 then
+	--		ns.qs.mythicdiffbutton:SetNormalFontObject(selectedfont);
+	--	else
+	--		ns.qs.mythicdiffbutton:SetNormalFontObject(deselectedfont);
+	--	end
+    --
+	--end
 end
