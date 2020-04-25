@@ -77,7 +77,7 @@ function ns.mm.SyncSpecs()
 	end
 end
 
-function ns.mm.Create(name, class, raidid, role, rank)
+function ns.mm.Create(name, class, raidid, rank)
 	if name then
 		if raidmembers[name] then
 			return false
@@ -90,9 +90,6 @@ function ns.mm.Create(name, class, raidid, role, rank)
 		if raidid then
 			raidmembers[name].raidid = raidid
 			raidmembers[name].real = true
-		end
-		if role then
-			raidmembers[name].role = role
 		end
 		if rank then
 			raidmembers[name].rank = rank

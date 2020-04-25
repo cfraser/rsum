@@ -87,7 +87,7 @@ end
 
 function RSUM_Debug_Init()
 	debugframe = CreateFrame("Frame", "rsumdebug", UIParent);
-	debugframe:SetPoint("CENTER", 0, -340);
+   	debugframe:SetPoint("CENTER", 0, -340);
 	debugframe:SetSize(400, 80);
 	debugfontstring = debugframe:CreateFontString("rsumdebugfontstring");
 	debugfontstring:SetFont("Fonts\\FRIZQT__.TTF", 12, "");

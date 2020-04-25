@@ -147,7 +147,7 @@ function RSUM_UpdateVGroup()
 		for member=1,GetNumGroupMembers(),1 do
 			local raidid = "raid" .. member;
 			local name, rank, subgroup, level, class, fileName, zone, online, isDead, raidrole, isML = GetRaidRosterInfo(member);
-			local role = UnitGroupRolesAssigned(raidid);
+			--local role = UnitGroupRolesAssigned(raidid);
 			if name then
 				ns.mm.Create(name, fileName, member, role, rank)
 				ns.gm.Add(name, subgroup)
